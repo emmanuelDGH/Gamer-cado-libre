@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary">
+    <Typography align="center"variant="body2" color="text.secondary">
       {`Copyright ©  ${new Date().getFullYear()} Gamer-cado Libre SA.`}
     </Typography>
   );
@@ -15,10 +15,15 @@ function Copyright() {
 export default function Footer() {
   return (
     <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-      }}
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems:"center",
+      justifyContent:"center",
+     
+    
+    }}
+     
     >
       <CssBaseline />
       <Box
@@ -27,6 +32,7 @@ export default function Footer() {
           py: 3,
           px: 2,
           mt: 'auto',
+          width:"100%",
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'
               ? theme.palette.grey[200]

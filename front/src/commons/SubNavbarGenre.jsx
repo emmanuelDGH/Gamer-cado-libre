@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, CardActionArea } from "@mui/material";
-import axios from "axios";
+
 import { Stack } from "@mui/system";
 
 import { Link } from "react-router-dom";
@@ -27,20 +27,11 @@ export default function SimpleSlider() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 10,
-    slidesToScroll: 9,
+    slidesToShow: 6,
+    slidesToScroll: 5,
     responsive: [
       {
-        breakpoint: 1440,
-        settings: {
-          slidesToShow: 7,
-          slidesToScroll: 7,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 1040,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 5,
@@ -49,15 +40,31 @@ export default function SimpleSlider() {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 1400,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 1120,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          
+        },
+      },
+      {
+        breakpoint: 750,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -75,12 +82,13 @@ export default function SimpleSlider() {
             <Box key={i} spacing={2}>
               <div key={genre.id}>
                 <h3 key={genre.id}>
-                  <Card sx={{ maxWidth: 150, maxHeight: 280 }}>
+                  <Card sx={{ maxWidth: 280, maxHeight: 500 }}>
                     <CardActionArea>
                       {genre.products[0] && (
                         <CardMedia
+                        
                           component="img"
-                          height="200"
+                          height="350"
                           image={baseUrl + genre.products[0].urlId + ".jpg"}
                           alt="Genre_img"
                         />
@@ -94,19 +102,21 @@ export default function SimpleSlider() {
                           component={Stack}
                           direction="column"
                           justifyContent="center"
+                          alignItems="center"
+  
                           sx={{
                             bgcolor: "secondary.main",
-                            height: 80,
+                            height: 60,
                           }}
                         >
                           <Typography
                             color="text.main"
                             gutterBottom
-                            variant="subtitle2"
+                            variant="h6"
                             component="div"
                             borderRadius={5}
                           >
-                            {genre.genre.toUpperCase()}
+                            {genre.genre}
                           </Typography>
                         </CardContent>
                       </Link>

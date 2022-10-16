@@ -29,13 +29,17 @@ export default function PaginationControlled(games) {
     <Box
       sx={{
         display: "flex",
-        flexDirection: "column",
+        alignItems:"center",
+        justifyContent:"center",
+        mb:5       
       }}
     >
       <Box>
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" >
           <Stack spacing={2}>
-            <Typography>Page: {page}</Typography>
+            
+            <Typography align="center" variant="subtitle1">Page: {page}</Typography>
+            
             <Pagination
               count={gamesPageQuantity}
               page={page}

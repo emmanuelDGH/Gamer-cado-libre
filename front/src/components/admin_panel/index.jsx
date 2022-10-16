@@ -7,6 +7,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 
+
+
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
@@ -71,12 +73,13 @@ function Admin_panel() {
         aria-controls={open ? "demo-customized-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        variant="contained"
+        variant="text"
+        color="text"
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        PANEL ADMIN
+        Admin
       </Button>
       <StyledMenu
         id="demo-customized-menu"

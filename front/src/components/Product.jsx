@@ -7,7 +7,6 @@ import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { addToCart } from "../state/cart";
 import { useDispatch, useSelector } from "react-redux";
-import Cart from "./Cart/Cart";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Product = () => {
@@ -65,7 +64,7 @@ const Product = () => {
           productId: game.id,
         })
       );
-      alert("The videogame was succesfully added at the cart");
+  
     }
   };
 
@@ -95,8 +94,7 @@ const Product = () => {
 
   return (
     <>
-      <Cart />
-      <Box>
+      <Box sx={{mx:50}}>
         <div id="product">
           <div className="content">
             <div id="img">

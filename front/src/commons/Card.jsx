@@ -13,18 +13,18 @@ export default function ActionAreaCard({ game }) {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="100%"
+            height="400"
             image={baseURL + game.urlId + ".jpg"}
             alt="Portada del videojuego"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {game.name}
+            <Typography gutterBottom variant="h6" component="div">
+            {game.name &&`${game.name.substring(0,20)}...`}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {game.description && `${game.description.substring(0,100)}...`}
+            <Typography gutterBottom variant="body1" color="text.secondary">
+              {game.description && `${game.description.substring(0,55)}...`}
             </Typography>
-            <Typography>{`$${game.price}`}</Typography>
+            <Typography sx={{fontWeight: 'bold'}} variant="h6">{`$ ${game.price}`}</Typography>
           </CardContent>
         </CardActionArea>
       </Card>

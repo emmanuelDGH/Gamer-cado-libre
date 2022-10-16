@@ -18,6 +18,8 @@ import UserButton from "../components/UserButton";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountMenu from "../components/user_display_menu";
+
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -77,7 +79,7 @@ export default function PrimarySearchAppBar() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
+  
 
   const getQuantityCart = () => {
     var totalItems = 0;
@@ -128,17 +130,9 @@ export default function PrimarySearchAppBar() {
       Auth = (
         <>
           <Stack direction="row" spacing={2}>
-            <Button
-              variant="text"
-              color="text"
-              onClick={() => {
-                sendTo("user");
-              }}
-            >
-              {user.firstName}
-            </Button>
+           
             <IconButton
-              color="inherit"
+              color="text"
               aria-label="cart"
               onClick={() => {
                 dispatch(toggleCart());
@@ -148,6 +142,16 @@ export default function PrimarySearchAppBar() {
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
+            
+            <Button
+              variant="text"
+              color="text"
+              onClick={() => {
+                sendTo("user");
+              }}
+            >
+              {user.firstName}
+            </Button>
             <Button
               variant="text"
               color="text"
@@ -157,15 +161,6 @@ export default function PrimarySearchAppBar() {
               }}
             >
               Logout
-            </Button>
-            <Button
-              variant="text"
-              color="text"
-              onClick={() => {
-                sendTo("user");
-              }}
-            >
-              {user.firstName}
             </Button>
           </Stack>
         </>
@@ -175,7 +170,7 @@ export default function PrimarySearchAppBar() {
         <>
           <Stack direction="row" spacing={2}>
             <IconButton
-              color="inherit"
+              color="text"
               aria-label="cart"
               onClick={() => {
                 dispatch(toggleCart());
@@ -189,13 +184,21 @@ export default function PrimarySearchAppBar() {
               variant="text"
               color="text"
               onClick={() => {
+                sendTo("user");
+              }}
+            >
+              {user.firstName}
+            </Button>
+            <Button
+              variant="text"
+              color="text"
+              onClick={() => {
                 dispatch(sendLogoutRequest());
                 sendTo("");
               }}
             >
               Logout
             </Button>
-            <UserButton user={user} />
             <Admin_panel />
           </Stack>
         </>
@@ -203,7 +206,7 @@ export default function PrimarySearchAppBar() {
     }
   }
 
-  return (
+  return ( 
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color="secondary" position="static">
         <Toolbar>
@@ -215,14 +218,7 @@ export default function PrimarySearchAppBar() {
           >
             <Link to="/" id="link" style={{ textDecoration: "none" }}>
               <Box sx={{ width: 0.5 }}>
-                <div id="loguito">
-                  <img
-                    id="loguitoPosta"
-                    src={imagen}
-                    alt="logo"
-                    loading="lazy"
-                  />
-                </div>
+                <Typography  variant="h5"color="text.main" sx={{fontWeight: 'bold'}}>Gamercadolibre</Typography >
               </Box>
             </Link>
           </Typography>
@@ -240,21 +236,8 @@ export default function PrimarySearchAppBar() {
               />
             </Search>
           </form>
-          <IconButton
-            color="inherit"
-            aria-label="cart"
-            onClick={() => {
-              dispatch(toggleCart());
-            }}
-          >
-            <StyledBadge badgeContent={getQuantityCart()} color="primary">
-              <ShoppingCartIcon />
-            </StyledBadge>
-          </IconButton>
-          <AccountMenu />
-          <Divider />
-          <Admin_panel />
-        </Toolbar>
+          {Auth}
+         </Toolbar>
       </AppBar>
     </Box>
   );
